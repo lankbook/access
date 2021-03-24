@@ -1,0 +1,22 @@
+body{
+    background-image: url('/images/font.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    
+
+}
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    margin-top: 35%;
+    
+}
+.left{
+    margin-left: 170px;
+}
+.login{
+    padding-top: 40%;
+}
