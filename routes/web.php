@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\login;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,19 +14,29 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+
+
+Route::get('/', function () {
+    return view('index');
 });
-Route::post('/welcome', function() {
-  $utilisateur = new App\utilisateur_model;
-  // $utilisateur->nom = request('nom');
-  // $utilisateur->prenom = request('prenom');
-  $utilisateur->email = request('email');
-  $utilisateur->pass1 = request('pass1');
-  $utilisateur->pass2 = request('pass2');
-
-  $utilisateur->save();
-
-  return 'bravo';
-
+Route::get('reservation', function () {
+    return view('reservation');
 });
+
+Route::get('apprenant', function () {
+    return view('apprenant');
+});
+
+
+//Route::get('/', [leila::class, 'index']);
+Route::get('users', [UsersController::class, 'create']);
+Route::post('users', [UsersController::class, 'store']);
+Route::get('admin', [UsersController::class, 'admin']);
+
+Route::get('login', [login::class, 'envoyer']);
+Route::post('login', [login::class, 'authenticate']);
+
